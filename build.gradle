@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+}
+
+group 'com.tw.academy'
+version '1.0-SNAPSHOT'
+
+repositories {
+    maven { url 'https://maven.aliyun.com/repository/public' }
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'joda-time', name: 'joda-time', version: '2.10.10'
+    testImplementation(platform('org.junit:junit-bom:5.7.2'))
+    testImplementation('org.junit.jupiter:junit-jupiter')
+    testCompile 'org.assertj:assertj-core:3.10.0'
+    testImplementation group: 'org.mockito', name: 'mockito-core', version: '2.1.0'
+    testImplementation group: 'org.mockito', name: 'mockito-junit-jupiter', version: '3.10.0'
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
